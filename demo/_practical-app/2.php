@@ -29,12 +29,17 @@
 
 			 */
 
-			 $name = 'John';
-			 $number = 100;
-			 echo $name . ' ' . $number;
+			$number1 = 10;
+			$number2 = 20;
 
-			 $name = '<h2>Hello</h2>';
-			 echo $name;
+			echo $number1 + $number2 . "<br>";
+
+			$lists = array(23,24,543,234,7654,3456);
+
+			$lists_assoc = array("number" => 10);
+
+			echo $lists_assoc["number"];
+
 		?>
 
 
