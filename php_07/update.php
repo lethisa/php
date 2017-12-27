@@ -1,3 +1,6 @@
+<?php include "connection.php"; ?>
+<?php include "function.php"; ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,8 +16,8 @@
 <body>
 
   <div class="container">
-    <div class="col-xs-6">
-      <form action="php_06_proc.php" method="post">
+    <div class="col-sm-6">
+      <form action="update.php" method="post">
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" name="username" class="form-control" placeholder="Enter Username" />
@@ -25,9 +28,21 @@
           <input type="password" name="password" class="form-control" placeholder="password" />
         </div>
 
-        <input class="btn btn-primary" type="submit" name="submit" value="SUBMIT" />
+        <div class="form-group">
+          <label for="">Select ID</label>
+            <select class="form-control" id="" name="id">
+              <!-- query id -->
+              <?php
+              showAllData();
+              ?>
+            </select>
+        </div>
+
+        <input class="btn btn-primary" type="submit" name="submit" value="UPDATE" />
+
       </form>
     </div>
+
   <!-- container end -->
   </div>
 

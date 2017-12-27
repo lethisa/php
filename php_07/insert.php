@@ -13,8 +13,8 @@
 <body>
 
   <div class="container">
-    <div class="col-xs-6">
-      <form action="php_06_proc.php" method="post">
+    <div class="col-sm-6">
+      <form action="validate.php" method="post">
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" name="username" class="form-control" placeholder="Enter Username" />
@@ -25,9 +25,10 @@
           <input type="password" name="password" class="form-control" placeholder="password" />
         </div>
 
-        <input class="btn btn-primary" type="submit" name="submit" value="SUBMIT" />
+        <input class="btn btn-primary" type="submit" name="submit" value="REGISTER" />
       </form>
     </div>
+    
   <!-- container end -->
   </div>
 
