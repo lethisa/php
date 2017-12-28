@@ -18,10 +18,17 @@ include 'connection.php';
         $username = $_POST['username'];
         $password = $_POST['password'];
 
+        // Escapes special characters in a string for use in an SQL statement
         $username = mysqli_real_escape_string($connection, $username);
         $password = mysqli_real_escape_string($connection, $password);
 
-        $query_insert = "INSERT INTO user (username,password) VALUE ('$username',$password)";
+        // hash + salt
+        $hashFormat = "2y$10$";
+        $salt = "qwert1234cvbghytrgftrm";
+        $hashSalt = $hashFormat . $salt;
+        $encript_password = crypt($password, $hashSalt);
+
+        $query_insert = "INSERT INTO user (username,password) VALUE ('$username','$encript_password')";
         $result = mysqli_query($connection, $query_insert);
 
         if (!$result) {
