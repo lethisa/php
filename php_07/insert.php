@@ -1,3 +1,12 @@
+<?php include "connection.php"; ?>
+<?php include "function.php"; ?>
+
+<?php
+  if (isset($_POST['submit'])) {
+    insertData();
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +23,7 @@
 
   <div class="container">
     <div class="col-sm-6">
-      <form action="validate.php" method="post">
+      <form action="insert.php" method="post">
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" name="username" class="form-control" placeholder="Enter Username" />
@@ -28,7 +37,7 @@
         <input class="btn btn-primary" type="submit" name="submit" value="REGISTER" />
       </form>
     </div>
-    
+
   <!-- container end -->
   </div>
 

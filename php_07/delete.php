@@ -1,9 +1,9 @@
-<?php include "connection.php"; ?>
-<?php include "function.php"; ?>
+<?php include 'connection.php'; ?>
+<?php include 'function.php'; ?>
 
 <?php
   if (isset($_POST['submit'])) {
-    deleteData();
+      deleteData();
   }
 ?>
 
