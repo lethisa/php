@@ -8,8 +8,7 @@ if ($connection) {
 
   while ($row = mysqli_fetch_assoc($result)) {
   print_r($row);
-  $ida = $row['id'];
-  echo $ida;
+
       }
   // if query failed
   if (!$result) {
