@@ -34,7 +34,7 @@
           <input type="password" name="password" class="form-control" placeholder="password" />
         </div>
 
-        <input class="btn btn-primary" type="submit" name="submit" value="REGISTER" />
+        <input class="btn btn-primary" type="submit" name="submit" value="INSERT" />
       </form>
     </div>
 

@@ -12,22 +12,21 @@
 
 include 'connection.php';
 
-    function inserData()
+    function insertData()
     {
-      global $connection;
-      $username = mysqli_real_escape_string($connection, $username);
-      $password = mysqli_real_escape_string($connection, $password);
+        global $connection;
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-      $username = $_POST['username'];
-      $password = $_POST['password'];
+        $username = mysqli_real_escape_string($connection, $username);
+        $password = mysqli_real_escape_string($connection, $password);
 
-      $query_insert = "INSERT INTO user (username,password) VALUE ('$username',$password)";
-      $result = mysqli_query($connection, $query_insert);
+        $query_insert = "INSERT INTO user (username,password) VALUE ('$username',$password)";
+        $result = mysqli_query($connection, $query_insert);
 
-      if (!$result) {
-        die('QUERY FAILED'.mysqli_error());
-      }
-
+        if (!$result) {
+            die('QUERY FAILED'.mysqli_error());
+        }
     }
 
     function showAllData()
@@ -50,12 +49,13 @@ include 'connection.php';
     function updateData()
     {
         global $connection;
-        $username = mysqli_real_escape_string($connection, $username);
-        $password = mysqli_real_escape_string($connection, $password);
 
         $username = $_POST['username'];
         $password = $_POST['password'];
         $id = $_POST['id'];
+
+        $username = mysqli_real_escape_string($connection, $username);
+        $password = mysqli_real_escape_string($connection, $password);
 
         $query = 'UPDATE user SET ';
         $query .= "username = '$username', ";
@@ -72,12 +72,12 @@ include 'connection.php';
     {
         global $connection;
 
-        $username = mysqli_real_escape_string($connection, $username);
-        $password = mysqli_real_escape_string($connection, $password);
-
         $username = $_POST['username'];
         $password = $_POST['password'];
         $id = $_POST['id'];
+
+        $username = mysqli_real_escape_string($connection, $username);
+        $password = mysqli_real_escape_string($connection, $password);
 
         $query_delete = 'DELETE FROM user ';
         $query_delete .= "WHERE id = $id";
