@@ -10,17 +10,22 @@ class car
     public function moveWheels()
     {
         echo "Wheels Move";
+        $this->wheel = 2; // this inside class
     }
 }
 
-// inisialisasi
+// instant
 $bmw = new car();
-$mercedes = new car();
 
 // using method
 $bmw -> moveWheels();
+
+// using properties
 echo $bmw -> wheel;
-//$mercedes -> moveWheels();
+
+// change value properies
+$bmw -> wheel = 8;
+echo $bmw -> wheel;
 
 // check class
 if (class_exists("car")) {
