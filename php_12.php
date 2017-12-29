@@ -2,12 +2,12 @@
 
 class car
 {
-    var $wheel = 4;
+    var $wheel = 14;
     var $hood = 1;
     var $engine = 1;
     var $door = 4;
 
-    public function moveWheels()
+    function moveWheels()
     {
         echo "Wheels Move";
         $this->wheel = 2; // this inside class
@@ -40,3 +40,31 @@ if (method_exists("car", "moveWheels")) {
 } else {
     echo "method not exist ";
 }
+
+// inheretance
+
+class plane extends car
+{
+    // change value in child
+    var $wheel = 23;
+}
+
+$jet = new plane();
+// properti inheretance
+echo $jet -> wheel;
+// inheritance method
+$jet -> moveWheels();
+
+// constructor
+class animal
+{
+    var $foot = 14;
+    var $teeth = 1;
+
+    function __construct()
+    {
+        echo $this -> foot = 4;
+    }
+}
+
+$duck = new animal();
