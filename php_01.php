@@ -22,7 +22,7 @@
 
     <?php
       echo "<h3>Math Operation</h3>";
-      // addition
+      // addition operation
       echo 12 + 13;
       echo "</br>";
       // reduction - subtraction

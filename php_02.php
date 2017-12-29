@@ -12,7 +12,7 @@
 
     <?php
       echo '<h3>If Statements</h3>';
-      // if structure
+      // if structures
       if (3 >= 10) {
         echo 'three is less than ten';
       } elseif (3 <=4) {

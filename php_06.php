@@ -28,7 +28,7 @@
         <input class="btn btn-primary" type="submit" name="submit" value="SUBMIT" />
       </form>
     </div>
-  <!-- container end -->
+  <!-- container ends -->
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
