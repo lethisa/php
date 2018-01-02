@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="col-xs-6">
-                          <table class="table">
+                          <table class="table ">
                             <thead>
                               <tr>
                                 <th>ID</th>
@@ -38,14 +38,22 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>A01</td>
-                                <td>Baseball Categories</td>
-                              </tr>
-                              <tr>
-                                <td>A02</td>
-                                <td>Music Categories</td>
-                              </tr>
+                              <?php
+                              // categories query
+                              $query_categories = "SELECT * FROM categories";
+                              $select_categories = mysqli_query($connection, $query_categories);
+
+                              // display categories
+                              while ($row_categories = mysqli_fetch_assoc($select_categories)) {
+                                  $cat_id = $row_categories['cat_id'];
+                                  $cat_title = strtoupper($row_categories['cat_title']);
+
+                                  echo "<tr>";
+                                  echo "</tr>";
+                                  echo "<td>{$cat_id}</td>";
+                                  echo "<td>{$cat_title}</td>";
+                              }
+                              ?>
                             </tbody>
                           </table>
                         </div>
