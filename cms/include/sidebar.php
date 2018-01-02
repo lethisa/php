@@ -22,29 +22,41 @@
     <div class="well">
         <h4>Blog Categories</h4>
         <div class="row">
+            <!-- Blog Categories 1 -->
             <div class="col-lg-6">
                 <ul class="list-unstyled">
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
+                  <?php
+                  // categories query 1
+                  $query_categories = "SELECT * FROM categories LIMIT 3";
+                  $select_categories_side = mysqli_query($connection, $query_categories);
+
+                  // display categories
+                  while ($row_categories_side = mysqli_fetch_assoc($select_categories_side)) {
+                      $cat_title = $row_categories_side['cat_title'];
+
+                      echo "<li><a href='#'>{$cat_title}</a></li>";
+                  }
+                  ?>
                 </ul>
+
             </div>
             <!-- /.col-lg-6 -->
+
+            <!-- Blog Categories 2 -->
             <div class="col-lg-6">
                 <ul class="list-unstyled">
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
+                  <?php
+                  // categories query 2
+                  $query_categories = "SELECT * FROM categories LIMIT 3";
+                  $select_categories_side = mysqli_query($connection, $query_categories);
+
+                  // display categories
+                  while ($row_categories_side = mysqli_fetch_assoc($select_categories_side)) {
+                      $cat_title = $row_categories_side['cat_title'];
+
+                      echo "<li><a href='#'>{$cat_title}</a></li>";
+                  }
+                  ?>
                 </ul>
             </div>
             <!-- /.col-lg-6 -->
@@ -53,9 +65,7 @@
     </div>
 
     <!-- Side Widget Well -->
-    <div class="well">
-        <h4>Side Widget Well</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-    </div>
+    <?php include "include/widget.php"; ?>
 
 </div>
+<!-- /.Blog Sidebar Widgets Column -->
