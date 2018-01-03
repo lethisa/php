@@ -12,10 +12,7 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            WELCOME
-                            <small>Author</small>
-                        </h1>
+                        <h1 class="page-header">CATEGORIES</h1>
 
                         <div class="col-xs-6">
                           <!-- ############### FORM INSERT CATEGORIES ############### -->
@@ -94,7 +91,7 @@
                         <!-- /.col-xs-6 -->
 
                         <div class="col-xs-6">
-                          <table class="table ">
+                          <table class="table table-bordered table-hover">
                             <thead>
                               <tr>
                                 <th>ID</th>
