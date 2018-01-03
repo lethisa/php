@@ -1,3 +1,5 @@
+<?php include "./function.php"; ?>
+
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
@@ -10,6 +12,7 @@
       <th>Tag</th>
       <th>Comment</th>
       <th>Date</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -41,8 +44,23 @@
         echo "<td>{$post_tag}</td>";
         echo "<td>{$post_comment}</td>";
         echo "<td>{$post_date}</td>";
+        echo "<td><a href='view_post.php?delete={$post_id}'>Delete</a></td>";
         echo "</tr>";
     }
     ?>
   </tbody>
 </table>
+
+    <!-- ############### QUERY DELETE POST ############### -->
+    <?php
+    if (isset($_GET['delete'])) {
+      $del_post_id = $_GET['delete'];
+
+      $query_delete = "DELETE FROM posts WHERE post_id = {$del_post_id}";
+      $delete_posts = mysqli_query($connection, $query_delete);
+
+      confirm_query($delete_posts);
+      header("Location: http://localhost/php/cms/admin/view_post.php");
+    }
+
+    ?>

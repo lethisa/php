@@ -24,6 +24,7 @@ if (isset($_POST['insert_post'])) {
     $insert_post = mysqli_query($connection, $query_insert);
 
     confirm_query($insert_post);
+    header("Location: http://localhost/php/cms/admin/view_post.php");
 
 }
 ?>

@@ -14,7 +14,7 @@
 
               <?php
               // posts query
-              $query_post = "SELECT * FROM posts";
+              $query_post = "SELECT * FROM posts ORDER BY post_id DESC";
               $select_post = mysqli_query($connection, $query_post);
 
               // display posts
