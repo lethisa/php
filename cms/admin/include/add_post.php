@@ -1,3 +1,4 @@
+<?php include "./function.php"; ?>
 <!-- ############### QUERY INSERT POST ############### -->
 <?php
 
@@ -22,13 +23,11 @@ if (isset($_POST['insert_post'])) {
     $query_insert .= "VALUES({$post_category_id},'{$post_title}','{$post_author}', now(), '{$post_image}','{$post_content}','{$post_tag}','{$post_comment_count}','{$post_status}') ";
     $insert_post = mysqli_query($connection, $query_insert);
 
-    if (!$insert_post) {
-      echo "QUERY ERROR" . mysqli_error($connection);
-    }
-
+    confirm_query($insert_post);
 
 }
 ?>
+
 <!-- ############### FORM INSERT POST ############### -->
 <form action="" method="post" enctype="multipart/form-data">
   <div class="form-group">
