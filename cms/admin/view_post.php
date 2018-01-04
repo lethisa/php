@@ -12,7 +12,7 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">VIEW POST</h1>
+                        <h1 class="page-header">POST</h1>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -32,8 +32,8 @@
                                include "include/add_post.php";
                                break;
 
-                               case 10:
-                                 include "include/add_post.php";
+                               case "edit_post":
+                                 include "include/edit_post.php";
                                  break;
 
                              default:
