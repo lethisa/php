@@ -38,7 +38,24 @@ if (isset($_POST['insert_post'])) {
 
   <div class="form-group">
     <label for="title">Post Category</label>
-    <input type="text" class="form-control" name="post_category_id" />
+    <select name="post_category_id" id="" class="form-control">
+    <!-- ############### QUERY DISPLAY CATEGORIES ############### -->
+    <?php
+    // categories query
+    $query_categories = "SELECT * FROM categories";
+    $select_categories = mysqli_query($connection, $query_categories);
+
+    confirm_query($select_categories);
+
+    // display categories
+    while ($row_categories = mysqli_fetch_assoc($select_categories)) {
+        $cat_id = $row_categories['cat_id'];
+        $cat_title = $row_categories['cat_title'];
+
+        echo "<option value='$cat_id'>{$cat_title}</option>";
+      }
+    ?>
+    </select>
   </div>
 
   <div class="form-group">
