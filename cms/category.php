@@ -13,8 +13,11 @@
             <div class="col-md-8">
 
               <?php
+              if (isset($_GET['category'])) {
+              $category_name = $_GET['category'];
+
               // posts query
-              $query_post = "SELECT * FROM posts ORDER BY post_id DESC";
+              $query_post = "SELECT * FROM posts WHERE post_category_id = $category_name ORDER BY post_id DESC";
               $select_post = mysqli_query($connection, $query_post);
 
               // display posts
@@ -48,7 +51,7 @@
                   <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                   <hr>
-              <?php } ?>
+              <?php } } ?>
 
                 <!-- Pager -->
                 <ul class="pager">

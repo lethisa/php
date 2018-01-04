@@ -27,14 +27,15 @@
                 <ul class="list-unstyled">
                   <?php
                   // categories query 1
-                  $query_categories = "SELECT * FROM categories LIMIT 3";
+                  $query_categories = "SELECT * FROM categories";
                   $select_categories_side = mysqli_query($connection, $query_categories);
 
                   // display categories
                   while ($row_categories_side = mysqli_fetch_assoc($select_categories_side)) {
                       $cat_title = $row_categories_side['cat_title'];
+                      $cat_id = $row_categories_side['cat_id'];
 
-                      echo "<li><a href='#'>{$cat_title}</a></li>";
+                      echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
                   }
                   ?>
                 </ul>
@@ -47,14 +48,15 @@
                 <ul class="list-unstyled">
                   <?php
                   // categories query 2
-                  $query_categories = "SELECT * FROM categories LIMIT 3";
+                  $query_categories = "SELECT * FROM categories";
                   $select_categories_side = mysqli_query($connection, $query_categories);
 
                   // display categories
                   while ($row_categories_side = mysqli_fetch_assoc($select_categories_side)) {
                       $cat_title = $row_categories_side['cat_title'];
+                      $cat_id = $row_categories_side['cat_id'];
 
-                      echo "<li><a href='#'>{$cat_title}</a></li>";
+                      echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
                   }
                   ?>
                 </ul>

@@ -1,3 +1,5 @@
+<?php include "/admin/function.php"; ?>
+
 <!-- Header -->
 <?php include "include/header.php"; ?>
 
@@ -13,9 +15,16 @@
             <div class="col-md-8">
 
               <?php
+              if (isset($_GET['p_id'])) {
+                $post_id = $_GET['p_id'];
+              }
+
+
               // posts query
-              $query_post = "SELECT * FROM posts ORDER BY post_id DESC";
+              $query_post = "SELECT * FROM posts WHERE post_id = '{$post_id}'";
               $select_post = mysqli_query($connection, $query_post);
+
+              confirm_query($select_post);
 
               // display posts
               while ($row_post = mysqli_fetch_assoc($select_post)) {
@@ -44,7 +53,6 @@
                   <img class="img-responsive" src="admin/images/<?php echo $post_image; ?>" alt="">
                   <hr>
                   <p><?php echo $post_content ?></p>
-                  <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                   <hr>
               <?php } ?>
@@ -66,6 +74,8 @@
 
         </div>
         <!-- /.row -->
+        <!-- Comment -->
+        <?php include "comment.php"; ?>
 
         <hr>
 

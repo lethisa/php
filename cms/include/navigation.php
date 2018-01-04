@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">HOME</a>
+            <a class="navbar-brand" href="index.php">HOME</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -25,8 +25,9 @@
                 // display categories
                 while ($row_categories = mysqli_fetch_assoc($select_categories)) {
                     $cat_title = strtoupper($row_categories['cat_title']);
+                    $cat_id = $row_categories['cat_id'];
 
-                    echo "<li><a href='#'>{$cat_title}</a></li>";
+                    echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
                 }
                 ?>
                 <li><a href="admin">ADMIN</a></li>
