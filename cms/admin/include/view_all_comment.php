@@ -5,14 +5,13 @@
     <tr>
       <th>Id</th>
       <th>Author</th>
-      <th>Title</th>
-      <th>Categories</th>
-      <th>Status</th>
-      <th>Image</th>
-      <th>Tag</th>
       <th>Comment</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>In Respon to</th>
       <th>Date</th>
-      <th>Edit</th>
+      <th>Approve</th>
+      <th>Unapprove</th>
       <th>Delete</th>
     </tr>
   </thead>
@@ -20,20 +19,17 @@
 
     <!-- ############### QUERY VIEW POST ############### -->
     <?php
-    $query_select = "SELECT * FROM posts";
-    $select_post = mysqli_query($connection, $query_select);
+    $query_select = "SELECT * FROM comment";
+    $select_comment = mysqli_query($connection, $query_select);
 
-    while ($row_post = mysqli_fetch_assoc($select_post)) {
-        $post_id = $row_post['post_id'];
-        $post_category = $row_post['post_category_id'];
-        $post_title = $row_post['post_title'];
-        $post_author = $row_post['post_author'];
-        $post_date = $row_post['post_date'];
-        $post_image = $row_post['post_image'];
-        $post_content = $row_post['post_content'];
-        $post_tag = $row_post['post_tag'];
-        $post_comment = $row_post['post_comment_count'];
-        $post_status = $row_post['post_status'];
+    while ($row_comment = mysqli_fetch_assoc($select_comment)) {
+        $comment_id = $row_post['comment_id'];
+        $comment_author = $row_post['comment_author'];
+        $comment_email = $row_comment['comment_email'];
+        $comment_content = $row_comment['comment_content'];
+        $comment_status = $row_comment['comment_status'];
+        $comment_date = $row_comment['$comment_date'];
+
 
         echo "<tr>";
         echo "<td>{$post_id}</td>";
