@@ -28,7 +28,7 @@
                        }
 
                          switch ($source) {
-                             case "add_post":
+                             case "delete_comment":
 
                                break;
 

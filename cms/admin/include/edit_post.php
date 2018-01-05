@@ -62,7 +62,10 @@ if (isset($_GET['p_id'])) {
 
   <div class="form-group">
     <label for="title">Post Status</label>
-    <input type="text" class="form-control" name="post_status" value="<?php echo $post_status; ?>" />
+    <select name="post_status" id="" class="form-control">
+      <option value="publish">Publish</option>
+      <option value="draft">Draft</option>
+    </select>
   </div>
 
   <div class="form-group">

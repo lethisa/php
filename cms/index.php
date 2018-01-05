@@ -26,28 +26,32 @@
                   $post_image = $row_post['post_image'];
                   $post_image = $row_post['post_image'];
                   $post_content = substr($row_post['post_content'],0,200);
-              ?>
+                  $post_status = $row_post['post_status'];
 
-                  <h1 class="page-header">
-                      Page Heading
-                      <small>Secondary Text</small>
-                  </h1>
+                  if ($post_status == "publish") { ?>
+                    <h1 class="page-header">
+                        Page Heading
+                        <small>Secondary Text</small>
+                    </h1>
 
-                  <!-- Blog Post -->
-                  <h2>
-                      <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title ?></a>
-                  </h2>
-                  <p class="lead">
-                      by <a href="index.php"><?php echo $post_author ?></a>
-                  </p>
-                  <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ?></p>
-                  <hr>
-                  <img class="img-responsive" src="admin/images/<?php echo $post_image; ?>" alt="">
-                  <hr>
-                  <p><?php echo $post_content ?></p>
-                  <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <!-- Blog Post -->
+                    <h2>
+                        <a href="post.php?p_id=<?php echo $post_id ?>"><?php echo $post_title ?></a>
+                    </h2>
+                    <p class="lead">
+                        by <a href="index.php"><?php echo $post_author ?></a>
+                    </p>
+                    <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ?></p>
+                    <hr>
+                    <img class="img-responsive" src="admin/images/<?php echo $post_image; ?>" alt="">
+                    <hr>
+                    <p><?php echo $post_content ?></p>
+                    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-                  <hr>
+                    <hr>
+
+                <?php  } ?>
+
               <?php } ?>
 
                 <!-- Pager -->

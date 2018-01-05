@@ -15,7 +15,7 @@ if (isset($_POST['insert_post'])) {
     $post_content = $_POST['post_content'];
 
     $post_date = date('d-m-y');
-    $post_comment_count = 4;
+    $post_comment_count = 0;
 
     move_uploaded_file($post_image_tmp, "./images/$post_image");
 
@@ -65,7 +65,10 @@ if (isset($_POST['insert_post'])) {
 
   <div class="form-group">
     <label for="title">Post Status</label>
-    <input type="text" class="form-control" name="post_status" />
+    <select name="post_status" id="" class="form-control">
+      <option value="publish">Publish</option>
+      <option value="draft">Draft</option>
+    </select>
   </div>
 
   <div class="form-group">
