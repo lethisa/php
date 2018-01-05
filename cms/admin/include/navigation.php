@@ -40,7 +40,7 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="posts_dropdown" class="collapse">
                     <li>
-                        <a href="./view_post.php">View All</a>
+                        <a href="./view_post.php">View Post</a>
                     </li>
                     <li>
                         <a href="view_post.php?source=add_post">Add Post</a>
@@ -57,10 +57,10 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="#">Dropdown Item</a>
+                        <a href="./view_user.php">View User</a>
                     </li>
                     <li>
-                        <a href="#">Dropdown Item</a>
+                        <a href="view_user.php?source=add_user">Add User</a>
                     </li>
                 </ul>
             </li>

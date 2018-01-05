@@ -12,7 +12,7 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">COMMENT</h1>
+                        <h1 class="page-header">USER</h1>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -28,10 +28,17 @@
                        }
 
                          switch ($source) {
-  
-                             default:
-                               include "include/view_all_comment.php";
-                               break;
+                              case "add_user":
+                                include "include/add_user.php";
+                                break;
+
+                                case "edit_user":
+                                include "include/edit_user.php";
+                                break;
+
+                                default:
+                                include "include/view_all_user.php";
+                                break;
                        }
 
                       ?>
