@@ -1,5 +1,6 @@
 <!-- Include Header -->
 <?php include "include/header.php"; ?>
+<?php include "./function.php"; ?>
 
     <div id="wrapper">
         <!-- Navigation -->
@@ -19,6 +20,12 @@
                     </div>
                 </div>
                 <!-- /.row -->
+
+                 <!-- widget -->
+                 <?php include "include/widget.php"; ?>
+
+                 <!-- charts -->
+                 <?php include "include/chart.php"; ?>
 
             </div>
             <!-- /.container-fluid -->
