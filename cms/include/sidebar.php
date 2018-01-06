@@ -66,6 +66,24 @@
         <!-- /.row -->
     </div>
 
+       <!-- Blog Login Well -->
+        <div class="well">
+            <h4>Blog Login</h4>
+            <form action="include/login.php" method="post">
+              <div class="form-group">
+                  <input name="username" type="text" class="form-control" placeholder="username" />
+              </div>
+              <div class="input-group">
+                  <input name="password" type="password" class="form-control" placeholder="password" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" name="login_user" type="submit">Login</button>
+                  </span>
+              </div>
+
+            </form>
+            <!-- /.form -->
+        </div>
+
     <!-- Side Widget Well -->
     <?php include "include/widget.php"; ?>
 

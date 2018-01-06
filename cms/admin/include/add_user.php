@@ -4,7 +4,7 @@
 
 if (isset($_POST['insert_user'])) {
     $user_firstname = $_POST['user_firstname'];
-    $user_lastname =$_POST['user_lastname'];
+    $user_lastname = $_POST['user_lastname'];
     $username = $_POST['username'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
@@ -56,7 +56,7 @@ if (isset($_POST['insert_user'])) {
   </div>
 
   <div class="form-group">
-    <input class="btn btn-primary" type="submit" name="update_user" value="UPDATE" />
+    <input class="btn btn-primary" type="submit" name="insert_user" value="UPDATE" />
   </div>
 
 </form>
