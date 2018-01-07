@@ -63,8 +63,16 @@ if (isset($_GET['p_id'])) {
   <div class="form-group">
     <label for="title">Post Status</label>
     <select name="post_status" id="" class="form-control">
-      <option value="publish">Publish</option>
-      <option value="draft">Draft</option>
+      <option value="<?php echo $post_status; ?>"><?php echo $post_status; ?></option>
+
+      <?php
+      if ($post_status == 'publish') {
+          echo "<option value='draft'>draft</option>";
+      } else {
+        echo "<option value='publish'>publish</option>";
+      }
+      ?>
+
     </select>
   </div>
 

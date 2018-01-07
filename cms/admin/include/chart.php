@@ -1,4 +1,5 @@
     <!-- ############### QUERY COUNT DRAFT POST ############### -->
+
     <?php
     $query = "SELECT * FROM posts WHERE post_status = 'draft' ";
     $select_post_draft = mysqli_query($connection, $query);
@@ -66,7 +67,7 @@
 
             // ############### QUERY COUNT GRAPH ############### -->
             <?php
-            $element_text = ['Active Post', 'Draft Post', 'Categorie', 'Admin', 'Subscriber', 'Approve Comment', 'Unapprove Comment'];
+            $element_text = ['Active Post', 'Draft Post', 'Categorie', 'Admin', 'Subscriber', 'App Comment', 'Un Comment'];
             $element_count = [$post_count_publish, $post_count_draft, $categories_count, $user_count_ad, $user_count_sub, $comment_count_app, $comment_count_un];
 
             for ($i=0; $i < 7 ; $i++) {

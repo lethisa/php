@@ -18,7 +18,7 @@
 
                     confirm_query($select_post);
                     ?>
-                      <div>Publish Posts</div>
+                      <div>All Posts</div>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
 
                       confirm_query($select_comment);
                       ?>
-                        <div>Comments</div>
+                        <div>All Comments</div>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
 
                       confirm_query($select_user);
                       ?>
-                        <div> Users</div>
+                        <div>All Users</div>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
 
                       confirm_query($select_categories);
                       ?>
-                         <div>Categories</div>
+                         <div>All Categories</div>
                     </div>
                 </div>
             </div>
