@@ -13,41 +13,20 @@
             <div class="col-md-8">
 
               <?php
-              //pagination
-              $post_query_count = "SELECT * FROM posts";
-              $find_count = mysqli_query($connection, $post_query_count);
-              $count = mysqli_num_rows($find_count);
-              $per_page = 3;
-              $count = ceil($count / $per_page);
-
-              // pagination function
-              if (isset($_GET['page'])) {
-                  $page = $_GET['page'];
-
-              } else {
-                  $page = 0;
-              }
-
-              if ($page == 0 || $page == 1) {
-                  $page_1 = 0;
-              } else {
-                  $page_1 = ($page * $per_page) - $per_page;
-              }
-
               // posts query
-              $query_post = "SELECT * FROM posts LIMIT 3 OFFSET $page_1 ";
-              $select_posts = mysqli_query($connection, $query_post);
+              $query_post = "SELECT * FROM posts ORDER BY post_id DESC";
+              $select_post = mysqli_query($connection, $query_post);
 
               // display posts
-              while ($row_posts = mysqli_fetch_assoc($select_posts)) {
-                  $post_id = $row_posts['post_id'];
-                  $post_title  = $row_posts['post_title'];
-                  $post_author = $row_posts['post_author'];
-                  $post_date = $row_posts['post_date'];
-                  $post_image = $row_posts['post_image'];
-                  $post_image = $row_posts['post_image'];
-                  $post_content = substr($row_posts['post_content'],0,200);
-                  $post_status = $row_posts['post_status'];
+              while ($row_post = mysqli_fetch_assoc($select_post)) {
+                  $post_id = $row_post['post_id'];
+                  $post_title  = $row_post['post_title'];
+                  $post_author = $row_post['post_author'];
+                  $post_date = $row_post['post_date'];
+                  $post_image = $row_post['post_image'];
+                  $post_image = $row_post['post_image'];
+                  $post_content = substr($row_post['post_content'],0,200);
+                  $post_status = $row_post['post_status'];
 
                   if ($post_status == "publish") { ?>
                     <h1 class="page-header">
@@ -79,18 +58,12 @@
 
                 <!-- Pager -->
                 <ul class="pager">
-                    <!-- ############### SHOW PAGINATION NUMBER ############### -->
-                    <?php
-                    for ($i=1; $i <= $count; $i++) {
-                        if ($i == $page) {
-                          echo "<li><a class='active_link' href='index.php?page={$i}'>{$i}</a></li>";
-                        } else {
-                          echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
-                        }
-
-
-                    }
-                    ?>
+                    <li class="previous">
+                        <a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">Newer &rarr;</a>
+                    </li>
                 </ul>
 
             </div>
