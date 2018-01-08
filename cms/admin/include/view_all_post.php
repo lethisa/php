@@ -103,7 +103,7 @@
 
           <!-- ############### QUERY VIEW POST ############### -->
           <?php
-          $query_select = "SELECT * FROM posts";
+          $query_select = "SELECT * FROM posts ORDER BY post_id DESC";
           $select_post = mysqli_query($connection, $query_select);
 
           while ($row_post = mysqli_fetch_assoc($select_post)) {
