@@ -43,7 +43,7 @@
         echo "<td>{$user_role}</td>";
         echo "<td><a href='view_user.php?change_admin={$user_id}'>Admin</a></td>";
         echo "<td><a href='view_user.php?change_sub={$user_id}'>Subscriber</a></td>";
-        echo "<td><a href='view_user.php?delete={$user_id}'>Delete</a></td>";
+        echo "<td><a onClick=\"javascript: return confirm('Are You Sure Want to Delete'); \" href='view_user.php?delete={$user_id}'>Delete</a></td>";
         echo "<td><a href='view_user.php?source=edit_user&user_id={$user_id}'>Edit</a></td>";
         echo "</tr>";
     }

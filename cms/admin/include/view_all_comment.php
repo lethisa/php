@@ -54,7 +54,7 @@
 
         echo "<td><a href='view_comment.php?approve={$comment_id}'>Approve</a></td>";
         echo "<td><a href='view_comment.php?unapprove={$comment_id}'>Unapprove</a></td>";
-        echo "<td><a href='view_comment.php?delete={$comment_id}'>Delete</a></td>";
+        echo "<td><a onClick=\"javascript: return confirm('Are You Sure Want to Delete'); \" href='view_comment.php?delete={$comment_id}'>Delete</a></td>";
 
         echo "</tr>";
     }

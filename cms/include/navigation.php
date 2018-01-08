@@ -30,6 +30,7 @@
                     echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
                 }
                 ?>
+                <li><a href="registration.php">REGISTER</a></li>
             </ul>
 
         </div>

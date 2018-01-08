@@ -11,7 +11,7 @@ if (isset($_POST['insert_user'])) {
     $user_role = $_POST['user_role'];
 
     $query_insert = "INSERT INTO user (user_firstname, user_lastname, username, user_email, user_password, user_image, user_role, randSalt) ";
-    $query_insert .= "VALUES('{$user_firstname}','{$user_lastname}','{$username}','{$user_email}','{$user_password}','','{$user_role}','') ";
+    $query_insert .= "VALUES('{$user_firstname}','{$user_lastname}','{$username}','{$user_email}','{$user_password}','','{$user_role}', DEFAULT) ";
     $insert_user = mysqli_query($connection, $query_insert);
 
     confirm_query($insert_user);

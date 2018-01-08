@@ -20,23 +20,26 @@
                 <!-- ############### INSERT COMMENT ############### -->
                 <?php
                 if (isset($_POST['insert_comment'])) {
-                $comment_post_id = $_GET['p_id'];
-                $comment_author = $_POST['comment_author'];
-                $comment_email = $_POST['comment_email'];
-                $comment_content = $_POST['comment_content'];
+                    $comment_post_id = $_GET['p_id'];
+                    $comment_author = $_POST['comment_author'];
+                    $comment_email = $_POST['comment_email'];
+                    $comment_content = $_POST['comment_content'];
 
-                $query_insert = "INSERT INTO comment (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date) ";
-                $query_insert .= "VALUES ($comment_post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved', now()) ";
-                $insert_comment = mysqli_query($connection, $query_insert);
+                    if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
+                        $query_insert = "INSERT INTO comment (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date) ";
+                        $query_insert .= "VALUES ($comment_post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved', now()) ";
+                        $insert_comment = mysqli_query($connection, $query_insert);
 
-                confirm_query($insert_comment);
+                        confirm_query($insert_comment);
 
-                $query_add = "UPDATE posts SET post_comment_count = post_comment_count +1 ";
-                $query_add .= "WHERE post_id = $comment_post_id";
-                $count_comment = mysqli_query($connection, $query_add);
+                        $query_add = "UPDATE posts SET post_comment_count = post_comment_count +1 ";
+                        $query_add .= "WHERE post_id = $comment_post_id";
+                        $count_comment = mysqli_query($connection, $query_add);
 
-                confirm_query($count_comment);
-
+                        confirm_query($count_comment);
+                    } else {
+                        echo "<script>alert('Field Cannot Be Empty')</script>";
+                    }
                 }
                 ?>
 
@@ -53,11 +56,9 @@
                 confirm_query($select_comment);
 
                 while ($row_comment = mysqli_fetch_assoc($select_comment)) {
-                  $comment_content = $row_comment['comment_content'];
-                  $comment_date = $row_comment['comment_date'];
-                  $comment_author = $row_comment['comment_author'];
-
-                ?>
+                    $comment_content = $row_comment['comment_content'];
+                    $comment_date = $row_comment['comment_date'];
+                    $comment_author = $row_comment['comment_author']; ?>
                 <!-- Posted Comments -->
                 <div class="media">
                     <a class="pull-left" href="#">
@@ -70,7 +71,8 @@
                         <?php echo $comment_content; ?>
                     </div>
                 </div>
-              <?php } ?>
+              <?php
+                } ?>
 
 
 

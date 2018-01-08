@@ -92,6 +92,18 @@ if (isset($_SESSION['username'])) {
       $user_email = $_POST['user_email'];
       $user_role = $_POST['user_role'];
 
+      if (!$password == $password) {
+        $query = "SELECT randSalt FROM user";
+        $select_randSalt = mysqli_query($connection, $query);
+
+        confirm_query($select_randSalt);
+
+        $row = mysqli_fetch_array($select_randSalt);
+        // encrypt password
+        $salt = $row['randSalt'];
+        $password = crypt($password , $salt);
+      }
+
       $query_update = "UPDATE user SET ";
       $query_update .= "username = '{$username}', ";
       $query_update .= "user_password ='{$password}', ";

@@ -21,6 +21,7 @@ if (isset($_GET['user_id'])) {
         $user_image = $row_user['user_image'];
         $user_role = $row_user['user_role'];
         $randSalt = $row_user['randSalt'];
+
     }
 }
 ?>
@@ -52,7 +53,7 @@ if (isset($_GET['user_id'])) {
       if ($user_role == "admin") {
         echo "<option value='subscriber'>subscriber</option>";
       } else {
-        echo "<option value='admin'>Admin</option>";
+        echo "<option value='admin'>admin</option>";
       }
 
       ?>
@@ -85,6 +86,18 @@ if (isset($_GET['user_id'])) {
     $user_lastname = $_POST['user_lastname'];
     $user_email = $_POST['user_email'];
     $user_role = $_POST['user_role'];
+
+    if (!$password == $password) {
+      $query = "SELECT randSalt FROM user";
+      $select_randSalt = mysqli_query($connection, $query);
+
+      confirm_query($select_randSalt);
+
+      $row = mysqli_fetch_array($select_randSalt);
+      // encrypt password
+      $salt = $row['randSalt'];
+      $password = crypt($password , $salt);
+    }
 
     $query_update = "UPDATE user SET ";
     $query_update .= "username = '{$username}', ";
