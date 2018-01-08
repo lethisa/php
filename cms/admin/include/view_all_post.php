@@ -8,28 +8,56 @@
               $bulk_options = $_POST['bulk_options'];
 
               switch ($bulk_options) {
-                case 'publish':
+                  case 'publish':
                   $query = "UPDATE posts SET post_status = '{$bulk_options}' WHERE post_id = {$postValueId}";
                   $update_query_publish = mysqli_query($connection, $query);
 
                   confirm_query($update_query_publish);
                   break;
 
-                case 'draft':
+                  case 'draft':
                   $query = "UPDATE posts SET post_status = '{$bulk_options}' WHERE post_id = {$postValueId}";
                   $update_query_draft = mysqli_query($connection, $query);
 
                   confirm_query($update_query_draft);
                   break;
 
-                case 'delete':
+                  case 'delete':
                   $query = "DELETE FROM posts WHERE post_id = {$postValueId}";
                   $update_query_del = mysqli_query($connection, $query);
 
                   confirm_query($update_query_del);
                   break;
 
-                default:
+                  case 'clone':
+                  $query = "SELECT * FROM posts WHERE post_id = {$postValueId}";
+                  $update_query_clone = mysqli_query($connection, $query);
+
+                  confirm_query($update_query_clone);
+
+                  while ($row = mysqli_fetch_array($update_query_clone)) {
+                        $post_title = $row['post_title'];
+                        $post_category_id = $row['post_category_id'];
+                        $post_author = $row['post_author'];
+                        $post_status = $row['post_status'];
+                        $post_date = $row['post_date'];
+                        $post_image = $row['post_image'];
+                        $post_tag = $row['post_tag'];
+                        $post_content = $row['post_content'];
+                        $post_comment_count = $row['post_comment_count'];
+                  }
+
+                  $query_insert = "INSERT INTO posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tag, post_comment_count, post_status) ";
+                  $query_insert .= "VALUES({$post_category_id},'{$post_title}','{$post_author}', '{$post_date}', '{$post_image}','{$post_content}','{$post_tag}',DEFAULT,'{$post_status}') ";
+                  $insert_post = mysqli_query($connection, $query_insert);
+
+                  confirm_query($insert_post);
+                  header("Location: http://localhost/php/cms/admin/view_post.php");
+
+
+                  break;
+
+                  default:
 
                   break;
               }
@@ -45,6 +73,7 @@
             <option value="publish">Publish</option>
             <option value="draft">Draft</option>
             <option value="delete">Delete</option>
+            <option value="clone">Clone</option>
           </select>
         </div>
 
