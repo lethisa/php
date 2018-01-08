@@ -17,8 +17,11 @@
               <?php
               if (isset($_GET['p_id'])) {
                 $post_id = $_GET['p_id'];
-              }
 
+              // view count
+              $query_view = "UPDATE posts SET post_view_count = post_view_count + 1 WHERE post_id = '{$post_id}'";
+              $view_count = mysqli_query($connection, $query_view);
+              confirm_query($view_count);
 
               // posts query
               $query_post = "SELECT * FROM posts WHERE post_id = '{$post_id}'";
@@ -58,7 +61,11 @@
 
                 <hr>
 
-              <?php } ?>
+            <?php } } else {
+                header("Location: index.php");
+            }
+
+               ?>
 
                 <!-- Pager -->
                 <ul class="pager">
