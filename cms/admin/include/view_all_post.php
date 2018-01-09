@@ -1,5 +1,3 @@
-<?php include "./function.php"; ?>
-
 <form action="" method="post">
       <!-- ############### BULK OPTION POST ############### -->
       <?php

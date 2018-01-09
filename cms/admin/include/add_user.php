@@ -1,4 +1,3 @@
-<?php include "./function.php"; ?>
 <!-- ############### QUERY INSERT USER ############### -->
 <?php
 
@@ -9,6 +8,8 @@ if (isset($_POST['insert_user'])) {
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
     $user_role = $_POST['user_role'];
+
+    $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
 
     $query_insert = "INSERT INTO user (user_firstname, user_lastname, username, user_email, user_password, user_image, user_role, randSalt) ";
     $query_insert .= "VALUES('{$user_firstname}','{$user_lastname}','{$username}','{$user_email}','{$user_password}','','{$user_role}', DEFAULT) ";

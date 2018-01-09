@@ -1,5 +1,3 @@
-<?php include "./function.php"; ?>
-
 <!-- ############### QUERY SELECT POST ID ############### -->
 <?php
 
@@ -81,13 +79,13 @@ if (isset($_GET['user_id'])) {
   if (isset($_POST['update_user'])) {
     $user_id = $_GET['user_id'];
     $username = $_POST['username'];
-    $password = $_POST['user_password'];
+    $password_us = $_POST['user_password'];
     $user_firstname = $_POST['user_firstname'];
     $user_lastname = $_POST['user_lastname'];
     $user_email = $_POST['user_email'];
     $user_role = $_POST['user_role'];
 
-    if (!$password == $password) {
+    if (!$password_us == $password) {
       $query = "SELECT randSalt FROM user";
       $select_randSalt = mysqli_query($connection, $query);
 

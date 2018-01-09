@@ -1,4 +1,3 @@
-<?php include "./function.php"; ?>
 <!-- ############### QUERY INSERT POST ############### -->
 <?php
 

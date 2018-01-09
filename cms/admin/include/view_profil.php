@@ -1,10 +1,4 @@
-<?php include "./function.php"; ?>
-
-
-
 <!-- ############### QUERY SELECT USER PROFIL ############### -->
-
-
 <?php
 
 if (isset($_SESSION['username'])) {

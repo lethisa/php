@@ -1,6 +1,5 @@
 <!-- Include Header -->
 <?php include "include/header.php"; ?>
-<?php include "./function.php"; ?>
 
     <div id="wrapper">
         <!-- Navigation -->

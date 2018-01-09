@@ -15,6 +15,9 @@
         <li>
             <a href="../index.php">Home </a>
         </li>
+        <li>
+            <a><?php echo users_online(); ?> USER OL</a>
+        </li>
 
 
         <li class="dropdown">

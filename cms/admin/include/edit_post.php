@@ -1,5 +1,3 @@
-<?php include "./function.php"; ?>
-
 <!-- ############### QUERY SELECT POST ID ############### -->
 <?php
 

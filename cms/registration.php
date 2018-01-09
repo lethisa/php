@@ -17,7 +17,10 @@
         $email = mysqli_real_escape_string($connection, $email);
         $password = mysqli_real_escape_string($connection, $password);
 
+        $password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12));
+
         if (!empty($username) && !empty($password) && !empty($email)) {
+            /* manual crypt
             $query = "SELECT randSalt FROM user";
             $select_randSalt = mysqli_query($connection, $query);
 
@@ -26,7 +29,8 @@
             $row = mysqli_fetch_array($select_randSalt);
             // encrypt password
             $salt = $row['randSalt'];
-            $password = crypt($password , $salt);
+            $password = crypt($password , $salt);*/
+
             // insert user
             $query_insert = "INSERT INTO user (username, user_email, user_password) ";
             $query_insert .= "VALUES('{$username}','{$email}','{$password}') ";
