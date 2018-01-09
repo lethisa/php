@@ -80,27 +80,29 @@ if (isset($_SESSION['username'])) {
   if (isset($_POST['update_user_profile'])) {
       $username_old = $_SESSION['username'];
       $username = $_POST['username'];
-      $password = $_POST['user_password'];
+      $user_password = $_POST['user_password'];
       $user_firstname = $_POST['user_firstname'];
       $user_lastname = $_POST['user_lastname'];
       $user_email = $_POST['user_email'];
       $user_role = $_POST['user_role'];
 
-      if (!$password == $password) {
-        $query = "SELECT randSalt FROM user";
-        $select_randSalt = mysqli_query($connection, $query);
+      if (!empty($user_password)) {
+        $query_pass = "SELECT user_password FROM user WHERE user_id = {$user_id}";
+        $get_user = mysqli_query($connection, $query_pass);
+        confirm_query($get_user);
 
-        confirm_query($select_randSalt);
+        $row = mysqli_fetch_array($get_user);
+        $db_user_pass = $row['user_password'];
+      }
 
-        $row = mysqli_fetch_array($select_randSalt);
-        // encrypt password
-        $salt = $row['randSalt'];
-        $password = crypt($password , $salt);
+      if ($user_password != $db_user_pass) {
+        // hash password
+        $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
       }
 
       $query_update = "UPDATE user SET ";
       $query_update .= "username = '{$username}', ";
-      $query_update .= "user_password ='{$password}', ";
+      $query_update .= "user_password ='{$user_password}', ";
       $query_update .= "user_firstname = '{$user_firstname}', ";
       $query_update .= "user_lastname ='{$user_lastname}', ";
       $query_update .= "user_role ='{$user_role}', ";

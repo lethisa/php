@@ -52,7 +52,12 @@
     <!-- ############### QUERY DELETE USER ############### -->
     <?php
     if (isset($_GET['delete'])) {
-        $del_user_id = $_GET['delete'];
+        if (isset($_SESSION['user_role'])) {
+           if ($_SESSION['user_role'] == 'admin') {
+
+           }
+        }
+        $del_user_id = mysqli_real_escape_string($connection, $_GET['delete']);
 
         $query_delete = "DELETE FROM user WHERE user_id = {$del_user_id}";
         $delete_user = mysqli_query($connection, $query_delete);
