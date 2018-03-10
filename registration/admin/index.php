@@ -1,211 +1,32 @@
-<!doctype html>
-<html lang="en">
+<!--connection database-->
+<?php include "include/connection.php"; ?>
+<!--custom function-->
+<?php include "include/function.php"; ?>
+<!--start session-->
+<?php session_start(); ?>
+<!--include header-->
+<?php include "include/header.php"; ?>
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Registration System</title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-  <meta name="viewport" content="width=device-width" />
-  <!-- Bootstrap core CSS     -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-  <!--  Material Dashboard CSS    -->
-  <link href="assets/css/material-dashboard.css" rel="stylesheet" />
-  <!--  CSS for Demo Purpose, don't include it in your project     -->
-  <link href="assets/css/demo.css" rel="stylesheet" />
-  <!--     Fonts and icons     -->
-  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
-</head>
-
-<body>
-  <div class="wrapper">
-    <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
-        Tip 2: you can also add an image using data-image tag
-        Tip 3: you can change the color of the sidebar with data-background-color="white | black"
-    -->
-      <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text">
-                    Wonderland Crew
-                </a>
-      </div>
-      <div class="logo logo-mini">
-        <a href="http://www.creative-tim.com" class="simple-text">
-                    Ct
-                </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <div class="user">
-          <div class="photo">
-            <img src="assets/img/faces/avatar.jpg" />
-          </div>
-          <div class="info">
-            <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            Tania Andrew
-                            <b class="caret"></b>
-                        </a>
-            <div class="collapse" id="collapseExample">
-              <ul class="nav">
-                <li>
-                  <a href="#">My Profile</a>
-                </li>
-                <li>
-                  <a href="#">Edit Profile</a>
-                </li>
-                <li>
-                  <a href="#">Settings</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!--navigation menu-->
-        <ul class="nav">
-          <!--dashboard menu-->
-          <li>
-            <a href="#">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
-                        </a>
-          </li>
-          <!--register menu-->
-          <li>
-            <a data-toggle="collapse" href="#formsExamples" aria-expanded="true">
-        <i class="material-icons">assignment_ind</i>
-        <p>Forms
-            <b class="caret"></b>
-        </p>
-    </a>
-            <!--register sub menu-->
-            <div class="collapse" id="formsExamples">
-              <ul class="nav">
-                <li>
-                  <a href="#">Input</a>
-                </li>
-                <li>
-                  <a href="#">View</a>
-                </li>
-              </ul>
-            </div>
-            <!--./register sub menu-->
-          </li>
-          <!--./register menu-->
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel">
-      <nav class="navbar navbar-transparent navbar-absolute">
-        <div class="container-fluid">
-          <div class="navbar-minimize">
-            <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
-                            <i class="material-icons visible-on-sidebar-regular">more_vert</i>
-                            <i class="material-icons visible-on-sidebar-mini">view_list</i>
-                        </button>
-          </div>
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-            <a class="navbar-brand" href="#"> Event Registration  </a>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="material-icons">dashboard</i>
-                                    <p class="hidden-lg hidden-md">Dashboard</p>
-                                </a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="material-icons">notifications</i>
-                                    <span class="notification">5</span>
-                                    <p class="hidden-lg hidden-md">
-                                        Notifications
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="#">Mike John responded to your email</a>
-                  </li>
-                  <li>
-                    <a href="#">You have 5 new tasks</a>
-                  </li>
-                  <li>
-                    <a href="#">You're now friend with Andrew</a>
-                  </li>
-                  <li>
-                    <a href="#">Another Notification</a>
-                  </li>
-                  <li>
-                    <a href="#">Another One</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="material-icons">person</i>
-                                    <p class="hidden-lg hidden-md">Profile</p>
-                                </a>
-              </li>
-              <li class="separator hidden-lg hidden-md"></li>
-            </ul>
-            <form class="navbar-form navbar-right" role="search">
-              <div class="form-group form-search is-empty">
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="material-input"></span>
-              </div>
-              <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                <i class="material-icons">search</i>
-                                <div class="ripple-container"></div>
-                            </button>
-            </form>
-          </div>
-        </div>
-      </nav>
-      <!--main content-->
-      <div class="content">
-        <!--container box-->
-        <div class="container-fluid">
-          <!--row box-->
-          <div class="row">
             <!--input box-->
             <div class="col-md-12">
               <div class="card">
-                <form id="RegisterValidation" action="" method="">
+                <form id="" action="" method="">
                   <div class="card-header card-header-icon" data-background-color="rose">
                     <i class="material-icons">account_box</i>
                   </div>
                   <div class="card-content">
                     <h4 class="card-title">Add Tenant</h4>
                     <div class="form-group label-floating">
-                      <label class="control-label">
-                                                Email Address
-                                                <small>*</small>
-                                            </label>
-                      <input class="form-control" name="email" type="email" required="true" />
+                      <label class="control-label">Name<small>*</small></label>
+                      <input class="form-control" name="name" type="text" required="true" />
                     </div>
                     <div class="form-group label-floating">
-                      <label class="control-label">
-                                                Password
-                                                <small>*</small>
-                                            </label>
-                      <input class="form-control" name="password" id="registerPassword" type="password" required="true" />
+                      <label class="control-label">Address<small>*</small></label>
+                      <input class="form-control" name="address" id="#" type="text" required="true" />
                     </div>
                     <div class="form-group label-floating">
-                      <label class="control-label">
-                                                Confirm Password
-                                                <small>*</small>
-                                            </label>
-                      <input class="form-control" name="password_confirmation" id="registerPasswordConfirmation" type="password" required="true" equalTo="#registerPassword" />
+                      <label class="control-label">Contact<small>*</small></label>
+                      <input class="form-control" name="address" id="#" type="text" required="true" />
                     </div>
                     <div class="category form-category">
                       <small>*</small> Required fields</div>
@@ -741,134 +562,6 @@
               <!--  end card  -->
             </div>
             <!--./user table-->
-          </div>
-          <!--./row box-->
-        </div>
-        <!--./container box-->
-      </div>
-      <!--./main content-->
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="pull-left">
-            <ul>
-              <li>
-                <a href="#">
-                                    Home
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    Company
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    Portfolio
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    Blog
-                                </a>
-              </li>
-            </ul>
-          </nav>
-          <p class="copyright pull-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>
-            <a href="http://www.wonderland-indonesia.com">Wonderland</a>, Where Wonderful Things Happens Everday
-          </p>
-        </div>
-      </footer>
-    </div>
-  </div>
-</body>
-<!--   Core JS Files   -->
-<script src="assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
-<script src="assets/js/jquery-ui.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/js/material.min.js" type="text/javascript"></script>
-<script src="assets/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
-<!-- Forms Validations Plugin -->
-<script src="assets/js/jquery.validate.min.js"></script>
-<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-<script src="assets/js/moment.min.js"></script>
-<!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js"></script>
-<!--  Plugin for the Wizard -->
-<script src="assets/js/jquery.bootstrap-wizard.js"></script>
-<!--  Notifications Plugin    -->
-<script src="assets/js/bootstrap-notify.js"></script>
-<!-- DateTimePicker Plugin -->
-<script src="assets/js/bootstrap-datetimepicker.js"></script>
-<!-- Vector Map plugin -->
-<script src="assets/js/jquery-jvectormap.js"></script>
-<!-- Sliders Plugin -->
-<script src="assets/js/nouislider.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<!-- Select Plugin -->
-<script src="assets/js/jquery.select-bootstrap.js"></script>
-<!--  DataTables.net Plugin    -->
-<script src="assets/js/jquery.datatables.js"></script>
-<!-- Sweet Alert 2 plugin -->
-<script src="assets/js/sweetalert2.js"></script>
-<!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="assets/js/jasny-bootstrap.min.js"></script>
-<!--  Full Calendar Plugin    -->
-<script src="assets/js/fullcalendar.min.js"></script>
-<!-- TagsInput Plugin -->
-<script src="assets/js/jquery.tagsinput.js"></script>
-<!-- Material Dashboard javascript methods -->
-<script src="assets/js/material-dashboard.js"></script>
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
 
-<!--script data table-->
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#datatables').DataTable({
-      "pagingType": "full_numbers",
-      "lengthMenu": [
-        [10, 25, 50, -1],
-        [10, 25, 50, "All"]
-      ],
-      responsive: true,
-      language: {
-        search: "_INPUT_",
-        searchPlaceholder: "Search records",
-      }
-
-    });
-
-
-    var table = $('#datatables').DataTable();
-
-    // Edit record
-    table.on('click', '.edit', function() {
-      $tr = $(this).closest('tr');
-
-      var data = table.row($tr).data();
-      alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-    });
-
-    // Delete a record
-    table.on('click', '.remove', function(e) {
-      $tr = $(this).closest('tr');
-      table.row($tr).remove().draw();
-      e.preventDefault();
-    });
-
-    //Like record
-    table.on('click', '.like', function() {
-      alert('You clicked on Like button');
-    });
-
-    $('.card .material-datatables label').addClass('form-group');
-  });
-</script>
-<!--./script data table-->
-
-</html>
+<!--include footer-->
+<?php include "include/footer.php"; ?>
