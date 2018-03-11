@@ -30,7 +30,7 @@ if (!isset($_SESSION['username'])) {
   <div class="wrapper">
     <!--//////////////////////////////////////////////////////////////-->
     <!--sidebar-->
-    <div class="sidebar" data-active-color="blue" data-background-color="black" data-image="assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-active-color="blue" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
       <!--//////////////////////////////////////////////////////////////-->
 
       <!--Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
