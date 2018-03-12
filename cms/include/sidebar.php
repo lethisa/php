@@ -68,20 +68,26 @@
 
        <!-- Blog Login Well -->
         <div class="well">
-            <h4>Blog Login</h4>
-            <form action="include/login.php" method="post">
-              <div class="form-group">
-                  <input name="username" type="text" class="form-control" placeholder="username" />
-              </div>
-              <div class="input-group">
-                  <input name="password" type="password" class="form-control" placeholder="password" />
-                  <span class="input-group-btn">
-                    <button class="btn btn-primary" name="login_user" type="submit">Login</button>
-                  </span>
-              </div>
 
-            </form>
-            <!-- /.form -->
+          <?php if (isset($_SESSION['user_role'])): ?>
+              <h4>Logged in as <?php echo $_SESSION['username'] ?></h4>
+              <a href="admin/include/logout.php" class="btn btn-primary">Logout</a>
+          <?php else: ?>
+              <h4>Blog Login</h4>
+              <form action="include/login.php" method="post">
+                <div class="form-group">
+                    <input name="username" type="text" class="form-control" placeholder="username" />
+                </div>
+                <div class="input-group">
+                    <input name="password" type="password" class="form-control" placeholder="password" />
+                    <span class="input-group-btn">
+                      <button class="btn btn-primary" name="login_user" type="submit">Login</button>
+                    </span>
+                </div>
+              </form>
+              <!-- /.form -->
+          <?php endif; ?>
+
         </div>
 
     <!-- Side Widget Well -->
