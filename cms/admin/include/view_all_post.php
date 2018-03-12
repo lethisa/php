@@ -1,3 +1,8 @@
+<?php
+include "delete_modal.php"
+ ?>
+
+
 <form action="" method="post">
       <!-- ############### BULK OPTION POST ############### -->
       <?php
@@ -34,15 +39,15 @@
                   confirm_query($update_query_clone);
 
                   while ($row = mysqli_fetch_array($update_query_clone)) {
-                        $post_title = $row['post_title'];
-                        $post_category_id = $row['post_category_id'];
-                        $post_author = $row['post_author'];
-                        $post_status = $row['post_status'];
-                        $post_date = $row['post_date'];
-                        $post_image = $row['post_image'];
-                        $post_tag = $row['post_tag'];
-                        $post_content = $row['post_content'];
-                        $post_comment_count = $row['post_comment_count'];
+                      $post_title = $row['post_title'];
+                      $post_category_id = $row['post_category_id'];
+                      $post_author = $row['post_author'];
+                      $post_status = $row['post_status'];
+                      $post_date = $row['post_date'];
+                      $post_image = $row['post_image'];
+                      $post_tag = $row['post_tag'];
+                      $post_content = $row['post_content'];
+                      $post_comment_count = $row['post_comment_count'];
                   }
 
                   $query_insert = "INSERT INTO posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tag, post_comment_count, post_status) ";
@@ -145,7 +150,8 @@
               echo "<td><a href='../post.php?p_id={$post_id}'>View</a></td>";
               echo "<td>{$post_view_count}</td>";
               echo "<td><a href='view_post.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";
-              echo "<td><a onClick=\"javascript: return confirm('Are You Sure Want to Delete'); \" href='view_post.php?delete={$post_id}'>Delete</a></td>";
+              /*echo "<td><a onClick=\"javascript: return confirm('Are You Sure Want to Delete'); \" href='view_post.php?delete={$post_id}'>Delete</a></td>";*/
+              echo "<td><a rel='{$post_id}' href='javascript:void(0)' class='delete_link'>Delete</a></td>";
               echo "</tr>";
           }
           ?>
@@ -166,3 +172,18 @@
     }
 
     ?>
+
+<script>
+    $(document).ready(function(){
+          $(".delete_link").on('click', function(){
+
+                var id = $(this).attr("rel");
+                var delete_url = "view_post.php?delete="+ id +" ";
+
+                $(".modal_delete_link").attr("href", delete_url);
+
+                $("#myModal").modal('show');
+          });
+   });
+
+</script>

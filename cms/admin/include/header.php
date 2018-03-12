@@ -46,7 +46,8 @@ if (!isset($_SESSION['user_role'])) {
     <!--
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>tinymce.init({ selector:'textarea' });</script>    -->
-
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
 </head>
 
