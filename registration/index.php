@@ -117,7 +117,7 @@ if (isset($_POST['login'])) {
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <a href="http://www.wonderland-indonesia.com">Wonderland</a>Indonesia
+                        <a href="http://www.wonderland-indonesia.com">Wonderland</a> Indonesia
                     </p>
                 </div>
             </footer>

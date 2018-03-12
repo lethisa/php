@@ -31,6 +31,8 @@
                 }
                 ?>
                 <li><a href="registration.php">REGISTER</a></li>
+                <li><a href="../cms/admin">ADMIN</a></li>
+                <li><a href="contact.php">CONTACT</a></li>
             </ul>
 
         </div>
