@@ -1,5 +1,12 @@
 <?php
 
+// ############### PEVENT SQL INJECTION ###############
+function escape($string){
+    global $connection;
+    // The trim() function removes whitespace and other predefined characters from both sides of a string
+    return mysqli_real_escape_string($connection, trim($string));
+}
+
 // ############### USER ONLINE ###############
 function users_online()
 {
