@@ -13,10 +13,22 @@
             <div class="col-md-8">
 
               <?php
+
+              if (isset($_SESSION['user_role']) && ($_SESSION['user_role'] == 'admin')) {
+                  $post_query_count = "SELECT * FROM posts";
+              } else {
+                  // posts query
+                  $post_query_count = "SELECT * FROM posts WHERE post_status= 'publish'";
+              }
               //pagination
-              $post_query_count = "SELECT * FROM posts";
+              /*$post_query_count = "SELECT * FROM posts WHERE post_status= 'publish'";*/
               $find_count = mysqli_query($connection, $post_query_count);
               $count = mysqli_num_rows($find_count);
+
+              if ($count < 1) {
+                  echo "<h1 class='text-center'>NO POST AVAILABLE</h1>";
+              } else {
+
               $per_page = 3;
               $count = ceil($count / $per_page);
 
@@ -49,7 +61,7 @@
                   $post_content = substr($row_posts['post_content'],0,200);
                   $post_status = $row_posts['post_status'];
 
-                  if ($post_status == "publish") { ?>
+                  if ($post_status == "publish" || $_SESSION['user_role'] == 'admin') { ?>
                     <h1 class="page-header">
                         Page Heading
                         <small>Secondary Text</small>
@@ -73,9 +85,10 @@
 
                     <hr>
 
-                <?php  } ?>
+                <?php
+                }?>
 
-              <?php } ?>
+              <?php }} ?>
 
                 <!-- Pager -->
                 <ul class="pager">

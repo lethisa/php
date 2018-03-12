@@ -8,10 +8,23 @@
     <!-- ############### CONTACT ############### -->
     <?php
 
+
     if (isset($_POST['submit'])) {
         $to = "dongkrak366@gmail.com";
-        $subject  = $_POST['subject'];
+        $subject  = wordwrap($_POST['subject'], 70);
         $body = $_POST['body'];
+        $header = "From: " .$_POST['email'];
+
+        /*// the message
+        $msg = "First line of text\nSecond line of text";
+
+        // use wordwrap() if lines are longer than 70 characters
+        $msg = wordwrap($msg, 70);
+
+        // send email
+        mail("someone@example.com", "My subject", $msg);*/
+
+        mail("dongkrak366@gmail.com", $subject, $body, $header);
     }
     ?>
 

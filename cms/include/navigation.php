@@ -27,10 +27,23 @@
                     $cat_title = strtoupper($row_categories['cat_title']);
                     $cat_id = $row_categories['cat_id'];
 
-                    echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
+                    // create highlight
+                    $category_class = '';
+                    $registration_class = '';
+
+                    $pageName = basename($_SERVER['PHP_SELF']);
+                    $registration = 'registration.php';
+
+                    if (isset($_GET['category']) && ($_GET['category'] == $cat_id)) {
+                        $category_class = 'active';
+                    } else if ($pageName == $registration){
+                        $registration_class = 'active';
+                    }
+
+                    echo "<li><a class='$category_class' href='category.php?category=$cat_id'>{$cat_title}</a></li>";
                 }
                 ?>
-                <li><a href="registration.php">REGISTER</a></li>
+                <li class="<?php echo $registration_class; ?>"><a href="registration.php">REGISTER</a></li>
                 <li><a href="../cms/admin">ADMIN</a></li>
                 <li><a href="contact.php">CONTACT</a></li>
             </ul>
