@@ -1,4 +1,3 @@
-
 <!--user table-->
           <div class="col-md-12">
             <div class="card">
@@ -61,6 +60,8 @@
                     </tbody>
                   </table>
                 </div>
+                <!--download button-->
+                <a href="../../report_customer.php"><button class="btn btn-info">DOWNLOAD ALL DATA</button></a>
               </div>
               <!-- end content-->
             </div>
