@@ -42,7 +42,24 @@ if (isset($_POST['insert_customer'])) {
             </div>
             <div class="form-group label-floating">
                 <label class="control-label">Group<small>*</small></label>
-                <input class="form-control" name="customer_group" id="#" type="text" required="true" />
+                    <select class="selectpicker" data-style="btn btn-primary btn-round" title="Single Select" data-size="10" name="customer_group">
+                        <option disabled selected> Choose Group</option>
+                        <!-- ############### QUERY DISPLAY GROUP ############### -->
+                        <?php
+                        // categories query
+                        $query_group = "SELECT * FROM groups";
+                        $select_group = mysqli_query($connection, $query_group);
+
+                        confirm_query($select_group);
+
+                        while ($row_group = mysqli_fetch_assoc($select_group)) {
+                            $groups_id = $row_group['groups_id'];
+                            $groups_name = $row_group['groups_name'];
+
+                            echo "<option value='{$groups_id}'>{$groups_name}</option>";
+                        }
+                        ?>
+                    </select>
             </div>
             <div class="category form-category">
                 <small>*</small> Required fields

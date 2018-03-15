@@ -41,7 +41,7 @@
                   <a href="customer.php?source=add_customer">Add Customer</a>
                 </li>
                 <li>
-                  <a href="customer.php?source=group">Group</a>
+                  <a href="customer.php?source=group">Group Member</a>
                 </li>
               </ul>
             </div>

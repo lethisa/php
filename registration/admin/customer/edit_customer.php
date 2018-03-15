@@ -5,7 +5,7 @@ if (isset($_GET['cust_id'])) {
     $customer_id = $_GET['cust_id'];
 
     // query insert customer
-    $query_select = "SELECT * FROM customer WHERE customer_id = {$customer_id}";
+    $query_select = "SELECT customer.customer_id, customer.customer_barcode, customer.customer_name, customer.customer_town, customer.customer_group, groups_name, groups.groups_id FROM customer LEFT JOIN groups ON customer.customer_group = groups_id WHERE customer_id = {$customer_id}";
     $select_customer_id = mysqli_query($connection, $query_select);
     // check query
     confirm_query($select_customer_id);
@@ -14,7 +14,8 @@ if (isset($_GET['cust_id'])) {
         $customer_barcode = $row_customer['customer_barcode'];
         $customer_name = $row_customer['customer_name'];
         $customer_town = $row_customer['customer_town'];
-        $customer_group = $row_customer['customer_group'];
+        $customer_group_id = $row_customer['groups_id'];
+        $customer_group_name = $row_customer['groups_name'];
     }
 }
 ?>
@@ -45,8 +46,26 @@ if (isset($_GET['cust_id'])) {
             </div>
             <div class="form-group label-floating">
                 <label class="control-label">Group<small>*</small></label>
-                <input class="form-control" name="customer_group" id="#" type="text" required="true" value="<?php echo $customer_group; ?>" />
-            </div>
+                    <select class="selectpicker" data-style="btn btn-primary btn-round"  data-size="10" name="customer_group">
+
+                        <!-- ############### QUERY DISPLAY GROUP ############### -->
+                        <?php
+                        echo "<option value='{$customer_group_id}'>{$customer_group_name}</option>";
+                        // categories query
+                        $query_group = "SELECT * FROM groups";
+                        $select_group = mysqli_query($connection, $query_group);
+
+                        confirm_query($select_group);
+
+                        while ($row_group = mysqli_fetch_assoc($select_group)) {
+                            $groups_id = $row_group['groups_id'];
+                            $groups_name = $row_group['groups_name'];
+
+                            echo "<option value='{$groups_id}'>{$groups_name}</option>";
+                        }
+                        ?>
+                    </select>
+              </div>
             <div class="category form-category">
                 <small>*</small> Required fields
             </div>
