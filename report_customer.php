@@ -12,19 +12,25 @@ $spreadsheet = new Spreadsheet();  /*----Spreadsheet object-----*/
 $spreadsheet->setActiveSheetIndex(0); /*----- Excel (Xls) Object*/
 $activeSheet = $spreadsheet->getActiveSheet();
 
-$query = "SELECT * FROM groups";
+$query = "SELECT customer.customer_barcode, customer.customer_name, customer.customer_town, groups.groups_name FROM customer LEFT JOIN groups ON customer.customer_group = groups.groups_id";
 $result_groups = mysqli_query($connection, $query);
 
-$activeSheet->setCellValue('A1' , 'Group ID')->getStyle('A1')->getFont()->setBold(true);
-$activeSheet->setCellValue('B1' , 'Group Name')->getStyle('B1')->getFont()->setBold(true);
+$activeSheet->setCellValue('A1' , 'CUSTOMER BARCODE')->getStyle('A1')->getFont()->setBold(true);
+$activeSheet->setCellValue('B1' , 'CUSTOMER NAME')->getStyle('B1')->getFont()->setBold(true);
+$activeSheet->setCellValue('C1' , 'CUSTOMER TOWN')->getStyle('C1')->getFont()->setBold(true);
+$activeSheet->setCellValue('D1' , 'CUSTOMER GROUP')->getStyle('D1')->getFont()->setBold(true);
 
     $i = 2;
     while ($row = mysqli_fetch_assoc($result_groups)) {
-        $groups_id = $row['groups_id'];
-        $groups_name = $row['groups_name'];
+        $customer_barcode = $row['customer_barcode'];
+        $customer_name = $row['customer_name'];
+        $customer_town = $row['customer_town'];
+        $customer_group = $row['groups_name'];
 
-        $activeSheet->setCellValue('A'.$i , $groups_id)->getStyle('A'.$i)->getFont()->setBold(false);
-        $activeSheet->setCellValue('B'.$i , $groups_name)->getStyle('B'.$i)->getFont()->setBold(false);
+        $activeSheet->setCellValue('A'.$i , $customer_barcode)->getStyle('A'.$i)->getFont()->setBold(false);
+        $activeSheet->setCellValue('B'.$i , $customer_name)->getStyle('B'.$i)->getFont()->setBold(false);
+        $activeSheet->setCellValue('C'.$i , $customer_town)->getStyle('A'.$i)->getFont()->setBold(false);
+        $activeSheet->setCellValue('D'.$i , $customer_group)->getStyle('B'.$i)->getFont()->setBold(false);
         $i++;
     }
 

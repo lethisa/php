@@ -34,7 +34,7 @@
                     <tbody>
                     <!-- ############### QUERY VIEW CUSTOMER ############### -->
                     <?php
-                    $query_select = "SELECT customer.customer_id, customer.customer_barcode, customer.customer_name, customer.customer_town, groups.groups_name FROM customer LEFT JOIN groups ON customer.customer_group = groups_id ";
+                    $query_select = "SELECT customer.customer_id, customer.customer_barcode, customer.customer_name, customer.customer_town, groups.groups_name FROM customer LEFT JOIN groups ON customer.customer_group = groups.groups_id ";
                     $select_customer = mysqli_query($connection, $query_select);
 
                     while ($row = mysqli_fetch_assoc($select_customer)) {
