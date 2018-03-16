@@ -61,7 +61,7 @@
                   </table>
                 </div>
                 <!--download button-->
-                <a href="../../report_customer.php"><button class="btn btn-info">DOWNLOAD ALL DATA</button></a>
+                <a href="include/report_customer.php"><button class="btn btn-info">DOWNLOAD ALL DATA</button></a>
               </div>
               <!-- end content-->
             </div>
