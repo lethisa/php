@@ -13,9 +13,9 @@
                   <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                     <thead>
                       <tr>
-                        <th>Barcode ID</th>
-                        <th>Nama Peserta</th>
-                        <th>Kota Asal</th>
+                        <th>Barcode</th>
+                        <th>Nama</th>
+                        <th>Kota</th>
                         <th>Group</th>
                         <th>Telp.</th>
                         <th>Visit Date</th>
@@ -24,9 +24,9 @@
                     </thead>
                     <tfoot>
                       <tr>
-                        <th>Barcode ID</th>
-                        <th>Nama Peserta</th>
-                        <th>Kota Asal</th>
+                        <th>Barcode</th>
+                        <th>Nama</th>
+                        <th>Kota</th>
                         <th>Group</th>
                         <th>Telp.</th>
                         <th>Visit Date</th>
