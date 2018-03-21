@@ -106,8 +106,34 @@ $(document).ready(function() {
   });*/
 
   $('.card .material-datatables label').addClass('form-group');
+
 });
+
 </script>
 <!--./script data table-->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+      $('.datepicker').datetimepicker({
+          format: 'MM/DD/YYYY',
+          icons: {
+              time: "fa fa-clock-o",
+              date: "fa fa-calendar",
+              up: "fa fa-chevron-up",
+              down: "fa fa-chevron-down",
+              previous: 'fa fa-chevron-left',
+              next: 'fa fa-chevron-right',
+              today: 'fa fa-screenshot',
+              clear: 'fa fa-trash',
+              close: 'fa fa-remove',
+              inline: true
+          }
+       });
+
+    });
+</script>
+
+
 
 </html>

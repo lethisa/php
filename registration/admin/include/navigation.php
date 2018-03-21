@@ -30,15 +30,15 @@
         <!--register menu-->
         <li>
           <a data-toggle="collapse" href="#pagesCustomer"><i class="material-icons">assignment_ind</i>
-            <p>Customer<b class="caret"></b></p>
+            <p>Participants<b class="caret"></b></p>
           </a>
             <div class="collapse" id="pagesCustomer">
               <ul class="nav">
                 <li>
-                  <a href="customer.php">Show Customer</a>
+                  <a href="customer.php">Show Participants</a>
                 </li>
                 <li>
-                  <a href="customer.php?source=add_customer">Add Customer</a>
+                  <a href="customer.php?source=add_customer">Add Participants</a>
                 </li>
                 <li>
                   <a href="customer.php?source=group">Group Member</a>

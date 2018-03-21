@@ -2,13 +2,14 @@
 <?php
 
 if (isset($_POST['insert_customer'])) {
-    $customer_barcode = $_POST['customer_barcode'];
     $customer_name = strtoupper($_POST['customer_name']);
     $customer_town = strtoupper($_POST['customer_town']);
     $customer_group = strtoupper($_POST['customer_group']);
+    $customer_hp = $_POST['customer_hp'];
+
     // query insert customer
-    $query_insert = "INSERT INTO customer (customer_barcode, customer_name, customer_town, customer_group) ";
-    $query_insert .= "VALUES('{$customer_barcode}','{$customer_name}','{$customer_town}','{$customer_group}') ";
+    $query_insert = "INSERT INTO customer (customer_name, customer_town, customer_group, customer_hp) ";
+    $query_insert .= "VALUES('{$customer_name}','{$customer_town}','{$customer_group}', '{$customer_hp}') ";
     $insert_customer = mysqli_query($connection, $query_insert);
     // check query
     confirm_query($insert_customer);
@@ -27,13 +28,9 @@ if (isset($_POST['insert_customer'])) {
                       <i class="material-icons">account_box</i>
                   </div>
         <div class="card-content">
-            <h4 class="card-title">Add Customer</h4>
+            <h4 class="card-title">Add Participants</h4>
             <div class="form-group label-floating">
-                <label class="control-label">Barcode ID<small>*</small></label>
-                <input class="form-control" name="customer_barcode" type="text" required="true" />
-            </div>
-            <div class="form-group label-floating">
-                <label class="control-label">Nama Customer<small>*</small></label>
+                <label class="control-label">Nama Peserta<small>*</small></label>
                 <input class="form-control" name="customer_name" type="text" required="true" />
             </div>
             <div class="form-group label-floating">
@@ -41,9 +38,13 @@ if (isset($_POST['insert_customer'])) {
                 <input class="form-control" name="customer_town" id="#" type="text" required="true" />
             </div>
             <div class="form-group label-floating">
+                <label class="control-label">No. Telp<small>*</small></label>
+                <input class="form-control" name="customer_hp" id="#" type="text" required="true" />
+            </div>
+            <div class="form-group label-floating">
                 <label class="control-label">Group<small>*</small></label>
-                    <select class="selectpicker" data-style="btn btn-primary btn-round" title="Single Select" data-size="10" name="customer_group">
-                        <option disabled selected> Choose Group</option>
+                    <select class="selectpicker" data-style="btn btn-primary btn-round" data-size="10" name="customer_group">
+
                         <!-- ############### QUERY DISPLAY GROUP ############### -->
                         <?php
                         // categories query
