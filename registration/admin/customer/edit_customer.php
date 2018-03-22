@@ -13,7 +13,7 @@ if (isset($_GET['cust_id'])) {
     while ($row_customer = mysqli_fetch_assoc($select_customer_id)) {
         $customer_name = $row_customer['customer_name'];
         $customer_town = $row_customer['customer_town'];
-
+        
         $customer_group_name = $row_customer['groups_name'];
         $customer_visit = $row_customer['groups_visit'];
         $customer_hp = $row_customer['customer_hp'];
@@ -51,7 +51,7 @@ if (isset($_GET['cust_id'])) {
 
                         <!-- ############### QUERY DISPLAY GROUP ############### -->
                         <?php
-                        echo "<option value='{$customer_group_id}'>{$customer_group_name}</option>";
+
                         // categories query
                         $query_group = "SELECT * FROM groups";
                         $select_group = mysqli_query($connection, $query_group);
@@ -86,13 +86,13 @@ if (isset($_GET['cust_id'])) {
                $customer_id = $_GET['cust_id'];
                $customer_name = strtoupper($_POST['customer_name']);
                $customer_town = strtoupper($_POST['customer_town']);
-               $customer_group = strtoupper($_POST['customer_group']);
+               $customer_group = $_POST['customer_group'];
                $customer_hp = $_POST['customer_hp'];
 
                $query_update = "UPDATE customer SET ";
                $query_update .= "customer_name = '{$customer_name}', ";
                $query_update .= "customer_town = '{$customer_town}', ";
-               $query_update .= "customer_group ='{$customer_group}', ";
+               $query_update .= "customer_group = {$customer_group}, ";
                $query_update .= "customer_hp ='{$customer_hp}' ";
                $query_update .= "WHERE customer_id = {$customer_id}";
 
