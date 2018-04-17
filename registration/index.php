@@ -34,9 +34,10 @@
         </div>
     </nav>
     <div class="wrapper wrapper-full-page">
-        <div class="full-page login-page" filter-color="black" data-image="assets/img/login.jpeg">
+        <div class="full-page login-page" filter-color="black" data-image="assets/img/science.jpg">
             <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
             <div class="content">
+
                 <div class="container">
                     <div class="row">
 
@@ -78,10 +79,15 @@
                                       $query_select = "SELECT groups_name FROM groups WHERE groups_barcode = '{$barcode}' ";
                                       $select_customer = mysqli_query($connection, $query_select);
 
-                                      while ($row = mysqli_fetch_assoc($select_customer)) {
-                                          $customer_group = $row['groups_name'];
+                                      if (mysqli_num_rows($select_customer) == 0) {
+                                          echo "<h1 style='text-align:center'><b>DATA TIDAK DITEMUKAN</b></h1>";
+                                      } else {
+                                          while ($row = mysqli_fetch_assoc($select_customer)) {
+                                              $customer_group = $row['groups_name'];
+                                              echo "<h1 style='text-align:center'><b>$customer_group</b></h1>";
+                                          }
+
                                       }
-                                      echo "<h1 style='text-align:center'><b>$customer_group</b></h1>";
                                   }
 
                                   ?>
@@ -111,18 +117,7 @@
         </div>
 
 
-            <footer class="footer">
-                <div class="container">
 
-                    <p class="copyright pull-right">
-                        &copy;
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>
-                        <a href="http://www.wonderland-indonesia.com">Wonderland</a> Indonesia
-                    </p>
-                </div>
-            </footer>
         </div>
     </div>
 </body>
