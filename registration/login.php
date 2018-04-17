@@ -5,6 +5,38 @@
 <!--start session-->
 <?php session_start(); ?>
 
+<!-- ############### LOGIN VALIDATION ############### -->
+<?php
+// get value from input
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $username = mysqli_real_escape_string($connection, $username);
+    $password = mysqli_real_escape_string($connection, $password);
+
+    $query = "SELECT * FROM user WHERE username = '{$username}'";
+    $select_user = mysqli_query($connection, $query);
+
+    confirm_query($select_user);
+
+    // get value from database
+    while ($row_user = mysqli_fetch_array($select_user)) {
+        $db_username = $row_user['username'];
+        $db_password = $row_user['password'];
+    }
+
+    // user checking- login
+    if ($username == $db_username && $password == $db_password) {
+        // start session login
+        $_SESSION['username'] = $db_username;
+        header("Location: admin");
+    } else {
+        header("Location: index.php");
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -39,78 +71,44 @@
             <div class="content">
                 <div class="container">
                     <div class="row">
-
-                        <div class="col-md-12">
-
-                            <div class="card">
-                                <div class="card-header card-header-icon" data-background-color="rose">
-                                    <i class="material-icons">pageview</i>
-                                </div>
-                                <div class="card-content">
-                                    <h4 class="card-title">PESERTA</h4>
-                                    <form method="post" action="">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Input Your BARCODE ID Here !</label>
-                                            <input type="text" class="form-control" name="barcode">
+                        <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                            <form method="post" action="">
+                                <div class="card card-login card-hidden">
+                                    <div class="card-header text-center" data-background-color="red">
+                                        <h4 class="card-title">Login</h4>
+                                    </div>
+                                    <p class="category text-center">
+                                        Wonderland Indonesia
+                                    </p>
+                                    <div class="card-content">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">face</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Username</label>
+                                                <input type="text" class="form-control" name="username" required="true" />
+                                            </div>
                                         </div>
-
-                                        <button type="submit" class="btn btn-fill btn-rose" name="search">SEARCH</button>
-                                    </form>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Password</label>
+                                                <input type="password" class="form-control" name="password" required="true" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer text-center">
+                                        <button type="submit" class="btn btn-rose btn-simple btn-wd btn-lg" name="login">Let's go</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-md-12">
-                          <div class="card">
-
-                              <div class="card-content">
-                                  <h1 class="card-title" style="text-align:center">WELCOME TOKO</h1>
-                                  <!-- ############### QUERY SEARCH CUSTOMER ############### -->
-                                  <?php
-
-                                  if (isset($_POST['search'])) {
-                                      $barcode = $_POST['barcode'];
-
-                                      $query_select = "SELECT groups_name FROM groups WHERE groups_barcode = '{$barcode}' ";
-                                      $select_customer = mysqli_query($connection, $query_select);
-
-                                      while ($row = mysqli_fetch_assoc($select_customer)) {
-                                          $customer_group = $row['groups_name'];
-                                      }
-                                      echo "<h1 style='text-align:center'><b>$customer_group</b></h1>";
-                                  }
-
-                                  ?>
-
-                              </div>
-                          </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <footer class="footer">
-      <div class="container">
-
-          <p class="copyright pull-right">
-              &copy;
-              <script>
-                  document.write(new Date().getFullYear())
-              </script>
-              <a href="http://www.wonderland-indonesia.com">Wonderland</a> Indonesia
-          </p>
-          <a href="login.php" target="_blank"><button class="btn btn-rose pull-right">LOGIN</button></a>
-
-      </div>
-  </footer>
-
-        </div>
-
-
             <footer class="footer">
                 <div class="container">
 
