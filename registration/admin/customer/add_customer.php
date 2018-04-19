@@ -6,14 +6,16 @@ if (isset($_POST['insert_customer'])) {
     $customer_town = strtoupper($_POST['customer_town']);
     $customer_group = strtoupper($_POST['customer_group']);
     $customer_hp = $_POST['customer_hp'];
+    $customer_meja = $_POST['customer_meja'];
+    $customer_kursi = $_POST['customer_kursi'];
 
     // query insert customer
-    $query_insert = "INSERT INTO customer (customer_name, customer_town, customer_group, customer_hp) ";
-    $query_insert .= "VALUES('{$customer_name}','{$customer_town}','{$customer_group}', '{$customer_hp}') ";
+    $query_insert = "INSERT INTO customer (customer_name, customer_town, customer_group, customer_hp,customer_meja,customer_kursi) ";
+    $query_insert .= "VALUES('{$customer_name}','{$customer_town}','{$customer_group}', '{$customer_hp}','{$customer_meja}','{$customer_kursi}') ";
     $insert_customer = mysqli_query($connection, $query_insert);
     // check query
     confirm_query($insert_customer);
-    header("Location: customer.php" );
+    header("Location: customer.php");
 }
 ?>
 
@@ -40,6 +42,14 @@ if (isset($_POST['insert_customer'])) {
             <div class="form-group label-floating">
                 <label class="control-label">No. Telp<small>*</small></label>
                 <input class="form-control" name="customer_hp" id="#" type="text" required="true" />
+            </div>
+            <div class="form-group label-floating">
+                <label class="control-label">Meja<small>*</small></label>
+                <input class="form-control" name="customer_meja" id="#" type="text" required="true" />
+            </div>
+            <div class="form-group label-floating">
+                <label class="control-label">Kursi<small>*</small></label>
+                <input class="form-control" name="customer_kursi" id="#" type="text" required="true" />
             </div>
             <div class="form-group label-floating">
                 <label class="control-label">Group<small>*</small></label>

@@ -52,7 +52,7 @@
                                     <form method="post" action="">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Input Your BARCODE ID Here !</label>
-                                            <input type="text" class="form-control" name="barcode">
+                                            <input type="text" class="form-control" name="barcode" autofocus required>
                                         </div>
 
                                         <button type="submit" class="btn btn-fill btn-rose" name="search">SEARCH</button>
@@ -76,25 +76,99 @@
                                   if (isset($_POST['search'])) {
                                       $barcode = $_POST['barcode'];
 
-                                      $query_select = "SELECT groups_name FROM groups WHERE groups_barcode = '{$barcode}' ";
+                                      $query_select = "SELECT groups_name, groups_id FROM groups WHERE groups_barcode = '{$barcode}' ";
                                       $select_customer = mysqli_query($connection, $query_select);
 
                                       if (mysqli_num_rows($select_customer) == 0) {
                                           echo "<h1 style='text-align:center'><b>DATA TIDAK DITEMUKAN</b></h1>";
+                                          echo "</div></div></div>";
                                       } else {
-                                          while ($row = mysqli_fetch_assoc($select_customer)) {
+                                          while ($row = mysqli_fetch_array($select_customer)) {
                                               $customer_group = $row['groups_name'];
-                                              echo "<h1 style='text-align:center'><b>$customer_group</b></h1>";
-                                          }
+                                              $customer_id = $row['groups_id'];
 
+                                              echo "<h1 style='text-align:center'><b>$customer_group</b></h1>";
+                                              echo "</div></div></div>"; ?>
+                                              <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header card-header-icon" data-background-color="rose">
+                                                        <i class="material-icons">assignment</i>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <h4 class="card-title">DAFTAR PESERTA</h4>
+                                                        <form method="post" action="#">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead class="text-primary">
+                                                                    <th>No.</th>
+                                                                    <th>Name</th>
+                                                                    <th>Meja</th>
+                                                                    <th>Kursi</th>
+                                                                    <th>Kota</th>
+                                                                    <th>Hadir</th>
+                                                                </thead>
+                                                                <tbody>
+
+                                                <?php
+
+                                              $query_data = "SELECT * FROM customer WHERE customer_group = {$customer_id} ";
+                                              $select_data = mysqli_query($connection, $query_data);
+
+                                              $i=1;
+                                              while ($rows = mysqli_fetch_array($select_data)) {
+                                                  $customer_id = $rows['customer_id'];
+                                                  $customer_name = $rows['customer_name'];
+                                                  $customer_town = $rows['customer_town'];
+                                                  $customer_meja = $rows['customer_meja'];
+                                                  $customer_kursi = $rows['customer_kursi'];
+                                                  $customer_status = $rows['customer_status'];
+
+                                                  echo "<tr>";
+                                                  echo "<td>$i</td>";
+                                                  echo "<td>{$customer_name}</td>";
+                                                  echo "<td>{$customer_meja}</td>";
+                                                  echo "<td>{$customer_kursi}</td>";
+                                                  echo "<td>{$customer_id}</td>"; ?>
+                                                  <td>
+                                                      <div class="checkbox">
+                                                      <label>
+                                                          <?php
+                                                          if ($customer_status == 1) {
+                                                              $disable = 'disabled';
+                                                          } else {
+                                                              $disable = '';
+                                                          }
+                                                          ?>
+                                                      <input type="checkbox" name="check_hadir[]" value="<?php echo $customer_id ?>" <?php echo $disable ?> > Hadir/Tidak
+                                                      </label>
+                                                      </div>
+                                                  </td>
+
+                                              </tr>
+
+
+                                                  <?php
+                                                  $i=$i+1;
+                                              } ?>
+                                                                </tbody>
+                                                            </table>
+                                                            <button type="submit" class="btn btn-fill btn-rose" name="submit">REGISTER</button>
+                                                        </div>
+                                                    </form>
+                                                    </div>
+                                                </div>
+
+                                              <?php
+                                          }
                                       }
                                   }
 
                                   ?>
 
-                              </div>
-                          </div>
-                        </div>
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -173,3 +247,18 @@
 </script>
 
 </html>
+
+<!-- ############### CHECK OPTION REGISTER ############### -->
+
+<?php
+if (isset($_POST['submit'])) {
+    foreach ($_POST['check_hadir'] as $absensi) {
+
+        $query = "UPDATE customer SET customer_status = 1 WHERE customer_id = {$absensi}";
+        $update_query = mysqli_query($connection, $query);
+
+        confirm_query($update_query);
+    }
+}
+
+?>
