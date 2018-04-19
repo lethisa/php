@@ -128,7 +128,7 @@
                                                   echo "<td>{$customer_name}</td>";
                                                   echo "<td>{$customer_meja}</td>";
                                                   echo "<td>{$customer_kursi}</td>";
-                                                  echo "<td>{$customer_id}</td>"; ?>
+                                                  echo "<td>{$customer_town}</td>"; ?>
                                                   <td>
                                                       <div class="checkbox">
                                                       <label>

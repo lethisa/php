@@ -68,9 +68,9 @@
                         echo "<td>{$customer_meja}</td>";
                         echo "<td>{$customer_kursi}</td>";
                         if ($customer_status_id == 0) {
-                            echo "<td><a href='customer.php?status_change={$customer_id}' class='btn btn-simple btn-danger btn-icon remove'><button class='btn btn-warning'>{$customer_status}</button></a></td>";
+                            echo "<td><a href='customer.php?status_change={$customer_id}'><button class='btn btn-warning'>{$customer_status}</button></a></td>";
                         } else {
-                            echo "<td><a href='customer.php?status_change={$customer_id}' class='btn btn-simple btn-success btn-icon remove'><button class='btn btn-success'>{$customer_status}</button></a></td>";
+                            echo "<td><a href='customer.php?status_change={$customer_id}'><button class='btn btn-success'>{$customer_status}</button></a></td>";
                         }
                         echo "<td class='text-right'>";
                         echo "<a href='customer.php?source=edit_customer&cust_id={$customer_id}' class='btn btn-simple btn-warning btn-icon edit'><i class='material-icons'>create</i></a>";
