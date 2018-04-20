@@ -83,6 +83,7 @@
                 </div>
                 <!--download button-->
                 <a href="include/report_customer.php"><button class="btn btn-info">DOWNLOAD ALL DATA</button></a>
+                <a href="include/report_hadir.php"><button class="btn btn-info">DOWNLOAD DATA HADIR</button></a>
               </div>
               <!-- end content-->
             </div>
