@@ -25,7 +25,7 @@
 
         <!-- Page Features -->
         <div class="row text-center">
-<?php get_products_cat($_GET['id']) ?>
+<?php get_products_shop() ?>
         </div>
         <!-- /.row -->
     </div>

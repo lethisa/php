@@ -5,13 +5,7 @@
 
         <!-- SHOW CATEGORIES -->
         <?php
-        $query = "SELECT * FROM categories";
-        $result = query($query);
-        confirm($result);
-
-        while ($row = fetch_array($result)) {
-            echo "<a href='#' class='list-group-item'>{$row['cat_title']}</a>";
-        }
+        get_categories();
         ?>
     </div>
 </div>
