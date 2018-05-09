@@ -27,6 +27,7 @@
                   /*$query_post = "SELECT * FROM posts WHERE post_category_id = $category_name AND post_status = 'publish' ORDER BY post_id DESC";*/
                   $select_post = mysqli_query($connection, $query_post);
 
+                  
                   if (mysqli_num_rows($select_post) < 1) {
                       echo "<h1 class='text-center'>NO CATEGORY AVAILABLE</h1>";
                   } else {
